@@ -15,7 +15,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: cloudacademydevops/stocks-db:v1
+      - image: cloudacademydevops/stocks-db:latest
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
