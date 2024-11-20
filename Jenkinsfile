@@ -13,7 +13,7 @@ pipeline {
                             //sh "git switch master"
                             sh "ls -la"
                             sh "echo DOCKERTAG: ${DOCKERTAG}"
-                            sh "cd k8s && sed -i 's+cloudacademydevops/stocks-api.*+cloudacademydevops/stocks-api:${DOCKERTAG}+g' 2_stocks_api.yaml"
+                            sh "cd k8s && sed -i 's+\(cloudacademydevops/stocks-api:\).*+\1${DOCKERTAG}+g' 2_stocks_api.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
                             sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/cloudacademy/stocks-app-gitops.git HEAD:main"
