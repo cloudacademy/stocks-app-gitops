@@ -16,7 +16,7 @@ pipeline {
                             sh "cd k8s && sed -i 's+cloudacademydevops/stocks-api.*+cloudacademydevops/stocks-api:r${DOCKERTAG}+g' 2_stocks_api.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/cloudacademy/jenkins-gitops-k8s.git HEAD:main"
+                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/cloudacademy/stocks-app-gitops.git HEAD:main"
                         }
                     }
                 }
