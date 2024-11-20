@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: cloudacademydevops/stocks-api:latest
+        image: cloudacademydevops/stocks-api:r11
         imagePullPolicy: Always
         env:
           - name: DB_CONNSTR
