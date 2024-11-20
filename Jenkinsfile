@@ -13,7 +13,7 @@ pipeline {
                             //sh "git switch master"
                             sh "ls -la"
                             sh "echo DOCKERTAG: ${DOCKERTAG}"
-                            sh "cat k8s/stocks_api.yaml"
+                            sh "cd k8s && cat stocks_api.yaml"
                             sh "sed -i 's+cloudacademydevops/stocks-api.*+cloudacademydevops/stocks-api:r${DOCKERTAG}+g' k8s/stocks_api.yaml"
                             sh "cat k8s/stocks_api.yaml"
                             sh "git add ."
