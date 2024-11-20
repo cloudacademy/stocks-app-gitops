@@ -7,10 +7,8 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                            //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                             sh "git config user.name Jeremy Cook"
                             sh "git config user.email jeremy.cook@qa.com"
-                            //sh "git switch master"
                             sh "ls -la"
                             sh "echo DOCKERTAG: ${DOCKERTAG}"
                             sh "cd k8s && sed -i 's+\\(cloudacademydevops/stocks-api:\\).*+\\1${DOCKERTAG}+g' 2_stocks_api.yaml"
