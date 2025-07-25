@@ -1,16 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: stocks
+  name: stocks-app
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/cloudacademy/stocks-app-gitops.git
-    targetRevision: HEAD
+    targetRevision: jenkins-demo
     path: k8s
   destination:
     server: https://kubernetes.default.svc
-    namespace: cloudacademy
+    namespace: stocks-app
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
