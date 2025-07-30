@@ -58,7 +58,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: cloudacademydevops/stocks-app-jdemo:v1.0.4
+          image: cloudacademydevops/stocks-app-jdemo:v1.0.5
           imagePullPolicy: Always
           env:
             - name: REACT_APP_APIHOSTPORT
