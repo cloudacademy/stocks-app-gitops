@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: cloudacademydevops/stocks-api-jdemo:v1.0.14
+          image: cloudacademydevops/stocks-api-jdemo:v1.0.15
           imagePullPolicy: Always
           env:
             - name: DB_CONNSTR
